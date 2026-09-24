@@ -55,6 +55,7 @@ function updatePOCount() {
 }
 function startPO() {
   if (poState !== 'idle') return;
+  if (typeof topicState !== 'undefined' && topicState === 'running') { $('poStatus').textContent = 'Finish the active Topic library attempt before starting this challenge.'; return; }
   poAnswers = poCurrent.questions.map(() => '');
   $('poSetLabel').textContent = `${PO_TOPICS.find(t => t.id === $('poTopic').value).label} · LEVEL ${$('poLevel').value}`;
   $('poPassage').innerHTML = `<h2>${esc(poCurrent.title)}</h2>` + poCurrent.paragraphs.map(p => `<p>${esc(p)}</p>`).join('');

@@ -77,3 +77,32 @@ node tests/po-practice.test.cjs
 ```
 
 The dependency-free tests cover content uniqueness, countdown deadlines, automatic submission, late input, early submission, restarting, topic changes and next-level navigation. They use a minimal DOM fixture and do not replace visual browser testing.
+
+## Topic library: essay and comprehension practice
+
+The **Topic library** tab contains the 50 requested topics in seven categories:
+
+1. Banking, Monetary Policy & Financial Sector Reforms (8)
+2. FinTech, Artificial Intelligence & Cybersecurity (7)
+3. Economy, Infrastructure & Trade (8)
+4. Agriculture, Rural Development & Financial Inclusion (6)
+5. Social Issues, Human Capital & Education (7)
+6. Environment, Sustainability & Energy Transition (5)
+7. Governance, Policy & Global Geopolitics (9)
+
+Choose a category, topic and mode. Essay mode provides a 20-minute timer, a 120–180 word practice target, a live word count and a short model response after submission. Reading mode provides the topic's original editorial passage and three written questions at each of ten levels. Each level reuses that topic passage with a different question focus, progressing from main idea to critical evaluation; it is not ten different passages per topic. Reading targets range from 5 to 10 minutes.
+
+Both modes submit automatically at expiry, lock responses for review, and provide model answers and self-review checkboxes. Only one timed attempt can run across the Topic library and Bank PO challenge. Drafts are held only in page memory and are lost on reload; an active attempt requests the browser's standard leave warning where supported.
+
+The preparation checklists identify data to research and link to official sources. No live statistics feed is claimed. Readers should verify reporting dates, definitions and current legal provisions. Model responses are original, short editorial practice material—not official exam answers, financial advice or legal guidance. They deliberately discuss trade-offs without inventing current numerical figures. Source links were checked on 24 September 2026.
+
+Data and behaviour live in `dist/topic-data.js` and `dist/topic-practice.js`. Validate them with:
+
+```sh
+node --check dist/topic-data.js
+node --check dist/topic-practice.js
+node tests/topic-practice.test.cjs
+node tests/po-practice.test.cjs
+```
+
+The tests use a small DOM fixture to validate state transitions and content completeness; visual browser testing remains separate.
