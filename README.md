@@ -51,3 +51,29 @@ Anyone can explore the source, try the live website and suggest improvements thr
 ## License
 
 This project is available under the [MIT License](LICENSE).
+
+## Timed Bank PO challenge
+
+Open **Bank PO challenge** for 10 levels in each of three topics: Banking & Finance, Economy & Business, and Society & Technology. There are 30 original passages and 90 distinct written questions, moving from finding facts to critical evaluation.
+
+- Choose a topic and level, then press **Start practice** to reveal the set.
+- Each level has a 5–10 minute practice target, shown before starting.
+- The countdown continues while the browser tab is inactive. At zero, responses are submitted and become read-only.
+- Submit early to reveal model answers, or use the self-review checkboxes to compare key ideas. These are not automatic scores.
+- After submission, retry the set, move to the next level or choose another topic.
+- Responses are held only in memory. Reloading or leaving the page discards the attempt; an active attempt displays a browser leave warning where supported.
+
+The challenge is a focused comprehension drill, not an official question paper or full Bank PO mock. Practice timings are editorial targets, not official exam timings.
+
+`dist/po-data.js` contains the topic, level and passage data. `dist/po-practice.js` manages the deadline, submission and answer review. The original writing and untimed reading tabs remain available.
+
+### Check the timed practice
+
+```sh
+node --check dist/app.js
+node --check dist/po-data.js
+node --check dist/po-practice.js
+node tests/po-practice.test.cjs
+```
+
+The dependency-free tests cover content uniqueness, countdown deadlines, automatic submission, late input, early submission, restarting, topic changes and next-level navigation. They use a minimal DOM fixture and do not replace visual browser testing.
